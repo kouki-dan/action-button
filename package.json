@@ -1,0 +1,34 @@
+{
+  "name": "action-button",
+  "version": "1.0.0",
+  "description": "A button for GitHub Actions",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "export": "next build && next export",
+    "start": "next start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kouki-dan/action-button.git"
+  },
+  "author": "Kouki Saito",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kouki-dan/action-button/issues"
+  },
+  "homepage": "https://github.com/kouki-dan/action-button#readme",
+  "dependencies": {
+    "next": "^9.0.5",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^12.7.5",
+    "@types/react": "^16.9.2",
+    "@zeit/next-typescript": "^1.1.1",
+    "typescript": "^3.6.3"
+  }
+}
