@@ -14,7 +14,9 @@
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "babel-loader": "^8.0.6",
+    "firebase": "^6.6.1",
     "html-webpack-plugin": "^3.2.0",
+    "npm-run-all": "^4.1.5",
     "ts-loader": "^6.1.0",
     "typescript": "^3.6.3",
     "webpack": "^4.40.2",
@@ -22,7 +24,9 @@
     "webpack-dev-server": "^3.8.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --mode=development",
+    "watch:firebase": "firebase serve -p 5055",
+    "watch:webpack": "webpack-dev-server --mode=development",
+    "start": "run-p watch:*",
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

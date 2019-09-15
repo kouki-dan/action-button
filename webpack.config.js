@@ -13,12 +13,8 @@ module.exports = {
       test: /\.ts(x?)$/,
       exclude: /node_modules/,
       use: [
-        {
-          loader: "babel-loader"
-        },
-        {
-          loader: "ts-loader"
-        }
+        'babel-loader',
+        'ts-loader'
       ]
     }]
   },
@@ -27,7 +23,13 @@ module.exports = {
       template: 'index.html'
     })
   ],
+  externals: {
+    firebase: 'firebase'
+  },
   devServer: {
-    contentBase: path.resolve(__dirname, "./dist")
+    contentBase: path.resolve(__dirname, "./dist"),
+    proxy: {
+      "/__": "http://localhost:5055"
+    }
   }
 };
