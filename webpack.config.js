@@ -16,6 +16,12 @@ module.exports = {
         'babel-loader',
         'ts-loader'
       ]
+    }, {
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        'css-loader'
+      ]
     }]
   },
   plugins: [
@@ -28,6 +34,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),
+    historyApiFallback: true,
     proxy: {
       "/__": "http://localhost:5055"
     }
