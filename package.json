@@ -1,34 +1,44 @@
 {
   "name": "action-button",
   "version": "1.0.0",
-  "description": "A button for GitHub Actions",
+  "description": "",
   "main": "index.js",
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "babel-loader": "^8.0.6",
+    "firebase": "^6.6.1",
+    "html-webpack-plugin": "^3.2.0",
+    "npm-run-all": "^4.1.5",
+    "ts-loader": "^6.1.0",
+    "typescript": "^3.6.3",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.8.0"
+  },
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "export": "next build && next export",
-    "start": "next start",
+    "watch:firebase": "firebase serve -p 5055",
+    "watch:webpack": "webpack-dev-server --mode=development",
+    "start": "run-p watch:*",
+    "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kouki-dan/action-button.git"
   },
-  "author": "Kouki Saito",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/kouki-dan/action-button/issues"
   },
-  "homepage": "https://github.com/kouki-dan/action-button#readme",
-  "dependencies": {
-    "next": "^9.0.5",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
-  },
-  "devDependencies": {
-    "@types/node": "^12.7.5",
-    "@types/react": "^16.9.2",
-    "@zeit/next-typescript": "^1.1.1",
-    "typescript": "^3.6.3"
-  }
+  "homepage": "https://github.com/kouki-dan/action-button#readme"
 }
