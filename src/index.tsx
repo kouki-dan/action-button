@@ -2,6 +2,8 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as firebase from 'firebase';
 
+import Button from '@material-ui/core/Button'
+
 interface AppProps { compiler: string; framework: string; }
 
 const App: React.FC<AppProps> = ({ compiler, framework }) => {
@@ -10,7 +12,10 @@ const App: React.FC<AppProps> = ({ compiler, framework }) => {
     console.log(app);
   }, []);
 
-  return <h1>Hello {compiler} and {framework}!</h1>;
+  return <>
+      <h1>Hello {compiler} and {framework}!</h1>
+      <Button>button</Button>
+    </>;
 };
 
 ReactDOM.render(
