@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AppBar, Typography, Toolbar } from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import 'normalize.css'
+import Home from './Home';
 
 const theme = createMuiTheme({
   palette: {
@@ -15,10 +16,6 @@ const theme = createMuiTheme({
     },
   },
 });
-
-const Home = () => {
-  return <div>Home</div>
-}
 
 const Repos = () => {
   return <div>Repos</div>

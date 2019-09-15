@@ -32,6 +32,9 @@ module.exports = {
   externals: {
     firebase: 'firebase'
   },
+  resolve: {
+    extensions: [".js", ".ts", ".tsx"]
+  },
   devServer: {
     contentBase: path.resolve(__dirname, "./dist"),
     historyApiFallback: true,
