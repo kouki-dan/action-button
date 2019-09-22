@@ -1,3 +1,4 @@
+src/graphqlTypes.ts
 dist/
 
 # Logs
