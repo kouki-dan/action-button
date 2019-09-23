@@ -1,4 +1,4 @@
-name: Test
+name: Demo
 
 on: [repository_dispatch]
 
@@ -9,11 +9,11 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - name: Run a multi-line script
-      if: github.event.action == 'test'
+    - name: Run demo 1
+      if: github.event.action == 'demo_test'
       run: |
         echo "the test action is dispatched"
-    - name: Run a multi-line script
-      if: github.event.action == 'test2'
+    - name: Run demo 2
+      if: github.event.action == 'demo_test2'
       run: |
         echo "the test2 action is dispatched"
