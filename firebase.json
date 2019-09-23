@@ -2,7 +2,7 @@
   "hosting": {
     "public": "dist",
     "rewrites": [{
-      "source": "/buttons/simple",
+      "source": "/buttons/simple.svg",
       "function": "simpleSVGButton"
     }],
     "ignore": [
