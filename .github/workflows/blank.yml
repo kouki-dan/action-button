@@ -1,0 +1,19 @@
+name: Test
+
+on: [repository_dispatch]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a multi-line script
+      if: github.event.action == 'test'
+      run: |
+        echo "the test action is dispatched"
+    - name: Run a multi-line script
+      if: github.event.action == 'test2'
+      run: |
+        echo "the test2 action is dispatched"
