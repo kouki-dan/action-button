@@ -1,0 +1,19 @@
+name: Deploy
+
+on: [repository_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run Deploy
+      if: github.event.action == 'deploy'
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      run: |
+        npm install firebase-tools
+        PATH=$(npm bin):$PATH
+        npm install
+        cd functions && npm install && cd ..
+        firebase deploy --token "$FIREBASE_TOKEN"
