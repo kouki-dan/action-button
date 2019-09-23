@@ -26,6 +26,17 @@ const dispatchGitHubActions = (org: string, name: string, eventType: string) => 
   });
 }
 
+
+const runAction = (org: string, name: string, eventType: string, setError: React.Dispatch<React.SetStateAction<string>>) => {
+  dispatchGitHubActions(org, name, eventType).then((res) => {
+    if (res.ok) {
+      location.href = `https://github.com/${org}/${name}/actions`;
+    } else {
+      setError("Error occured. Confirm to access rights for GitHub Apps.");
+    }
+  })
+}
+
 const ActionButton = (props: RouteComponentProps<{org: string, name: string}>) => {
   const org = props.match.params.org;
   const name = props.match.params.name;
@@ -33,16 +44,6 @@ const ActionButton = (props: RouteComponentProps<{org: string, name: string}>) =
   const [actionEventType, setActionEventType] = useState("");
   const [actionButtonType, setActionButtonType] = useState("");
   const [error, setError] = useState("");
-
-  const runAction = () => {
-    dispatchGitHubActions(org, name, actionEventType).then((res) => {
-      if (res.ok) {
-        location.href = `https://github.com/${org}/${name}/actions`;
-      } else {
-        setError("Error occured. Confirm to access rights for GitHub Apps.");
-      }
-    })
-  }
 
   useEffect(() => {
     const query = new Map<string, string>()
@@ -57,11 +58,12 @@ const ActionButton = (props: RouteComponentProps<{org: string, name: string}>) =
     const authorizationRequired = getToken().length == 0
     if (authorizationRequired) {
       // TODO: Authentication in this page(need to fix useAuthorization in auth.tsx)
-      props.history.push("/repos")
+      props.history.push("/repos");
+      return;
     }
 
     if (canRunActionAutomatically(document.referrer, org, name)) {
-      runAction();
+      runAction(org, name , query.get("eventType") || "", setError);
     }
   }, [])
 
@@ -74,7 +76,9 @@ const ActionButton = (props: RouteComponentProps<{org: string, name: string}>) =
       </Typography>
     </>}
     <Button
-      onClick={runAction}
+      onClick={() => {
+        runAction(org, name, actionEventType, setError);
+      }}
       disabled={error.length > 0}
     >
       <img src={`${location.origin}/buttons/${actionButtonType}.svg?name=${actionName}`}/>
