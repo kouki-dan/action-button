@@ -39,7 +39,8 @@ module.exports = {
     contentBase: path.resolve(__dirname, "./dist"),
     historyApiFallback: true,
     proxy: {
-      "/__": "http://localhost:5055"
+      "/__": "http://localhost:5055", // Firebase Hosting reserved url: https://firebase.google.com/docs/hosting/reserved-urls
+      "/button": "http://localhost:5055" // Rewrite function in firebase.json
     }
   }
 };

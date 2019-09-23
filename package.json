@@ -36,7 +36,7 @@
   "scripts": {
     "build:apollo-codegen": "apollo client:codegen --target typescript --outputFlat ./src/graphqlTypes.ts",
     "watch:apollo-codegen": "apollo client:codegen --target typescript --outputFlat ./src/graphqlTypes.ts --watch",
-    "watch:firebase": "firebase serve -p 5055",
+    "watch:firebase": "cd functions && npm run build && cd .. && firebase serve -p 5055",
     "build:webpack": "webpack --mode=production",
     "watch:webpack": "webpack-dev-server --mode=development",
     "build": "run-s build:*",
