@@ -4,11 +4,17 @@
     "rewrites": [{
       "source": "/buttons/simple.svg",
       "function": "simpleSVGButton"
+    }, {
+      "source": "**",
+      "destination": "/index.html"
     }],
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "predeploy": [
+      "npm --prefix \"$PROJECT_DIR\" run build"
     ]
   },
   "functions": {
