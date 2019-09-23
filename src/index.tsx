@@ -1,12 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch, withRouter, RouteComponentProps } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AppBar, Typography, Toolbar } from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { ApolloProvider } from '@apollo/react-hooks';
 import 'normalize.css'
 import Home from './Home';
-import Repos from './Repos'
+import Repos from './Repos';
+import Repo from './Repo';
 import { client } from "./apolloClient";
 
 const theme = createMuiTheme({
@@ -19,10 +20,6 @@ const theme = createMuiTheme({
     },
   },
 });
-
-const Repo = withRouter((props: RouteComponentProps<{org: string, name: string}>) => {
-  return <div>repo: {props.match.params.org}/{props.match.params.name}</div>
-})
 
 const App = () => {
   return <BrowserRouter>
