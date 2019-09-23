@@ -8,6 +8,7 @@ import 'normalize.css'
 import Home from './Home';
 import Repos from './Repos';
 import Repo from './Repo';
+import ActionButton from './ActionButton';
 import { client } from "./apolloClient";
 
 const theme = createMuiTheme({
@@ -36,6 +37,7 @@ const App = () => {
           <Route exact path='/' component={Home} />
           <Route exact path='/repos' component={Repos} />
           <Route exact path='/repos/:org/:name' component={Repo} />
+          <Route exact path='/repos/:org/:name/button' component={ActionButton} />
         </Switch>
       </MuiThemeProvider>
     </ApolloProvider>

@@ -55,7 +55,7 @@ const Repo = (props: RouteComponentProps<{org: string, name: string}>) => {
     const encodedName = encodeURIComponent(name);
     const encodedEventType = encodeURIComponent(eventType)
     const origin = location.origin
-    const queryString = `name=${encodedName}&eventType=${encodedEventType}`
+    const queryString = `name=${encodedName}&eventType=${encodedEventType}&type=simple`
     return `[![Run Action](${origin}/buttons/simple.svg?${queryString})](${origin}/repos/${props.match.params.org}/${props.match.params.name}/button?${queryString})`
   }
 
