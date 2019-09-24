@@ -58,7 +58,7 @@ const Home = () => {
         <Typography variant="h4">2. Create a Button in this service.</Typography>
         <Typography variant="body1" className={classes.body}>
           Install this GitHub Apps to your repository which you want to create a button from <a href="https://github.com/apps/action-button">https://github.com/apps/action-button</a><br/>
-          To create a button is too easy. Find your repository and input a title of button and event_type name.
+          To create a button is very easy. Find your repository and input a title of button and event_type name.
         </Typography>
         <div style={{
           textAlign: "center"
