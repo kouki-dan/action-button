@@ -34,7 +34,7 @@ const Repo = (props: RouteComponentProps<{org: string, name: string}>) => {
       <Typography variant="body1">
         No repository found in this access rights. Confirm them
         <ol>
-          <li>This repository is installed to <a href="https://github.com/settings/installations">GitHub Apps</a></li>
+          <li>This repository is installed to <a href="https://github.com/apps/action-button">GitHub Apps</a></li>
           <li>This repository really exists</li>
         </ol>
       </Typography>
