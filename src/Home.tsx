@@ -49,14 +49,17 @@ const Home = () => {
           Actions is able to run with various GitHub events such as pushes or pull requests. 
           However there is no event with human based trigger such as click any button. 
           This service makes it possible to run with clicking a button. 
-          For example, setup deploy feature in this button. 
+          For example, setup deploy feature in this button.<br/>
           <a href="https://github.com/kouki-dan/action-button/blob/master/.github/workflows/deploy.yml">This</a> is an example to use this button.
         </Typography>
       </Box>
 
       <Box className={classes.explanation}>
         <Typography variant="h4">2. Create a Button in this service.</Typography>
-        <Typography variant="body1" className={classes.body}>To create a button is too easy. Find your repository and input a title of button and event_type name.</Typography>
+        <Typography variant="body1" className={classes.body}>
+          Install this GitHub Apps to your repository which you want to create a button from <a href="https://github.com/apps/action-button">https://github.com/apps/action-button</a><br/>
+          To create a button is too easy. Find your repository and input a title of button and event_type name.
+        </Typography>
         <div style={{
           textAlign: "center"
         }}

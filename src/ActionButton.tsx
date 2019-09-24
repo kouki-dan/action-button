@@ -72,7 +72,7 @@ const ActionButton = (props: RouteComponentProps<{org: string, name: string}>) =
     { error && <>
       <Typography variant="body1" style={{ color: "red" }}>{error}</Typography>
       <Typography variant="body1">
-        Check <a href="https://github.com/settings/installations">Action Button on GitHub Apps</a> is really installed or you have a write access rights.
+        Check <a href="https://github.com/apps/action-button">Action Button on GitHub Apps</a> is really installed or you have a write access rights.
       </Typography>
     </>}
     <Button
