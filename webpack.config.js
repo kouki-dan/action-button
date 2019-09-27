@@ -26,6 +26,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
+      gtmContainerId: process.env.GTM_CONTAINER_ID,
       template: 'index.html'
     })
   ],
