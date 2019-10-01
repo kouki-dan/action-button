@@ -27,6 +27,18 @@ This is works on firebase and GitHub Apps. If you want, you can deploy own actio
 
 TODO: Write instructions
 
+# How to development
+
+Modify your `.firebaserc` file to use your firebase development environment.
+
+```
+npm install
+cd functions && npm install && cd ..
+npm start
+open http://localhost:8080/
+```
+
+
 # Action Buttons Demo
 [![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Run%20Demo%20Test&eventType=demo_test&type=simple)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Run%20Demo%20Test&eventType=demo_test&type=simple)
 [![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Run%20Demo%20Test2&eventType=demo_test2&type=simple)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Run%20Demo%20Test2&eventType=demo_test2&type=simple)
