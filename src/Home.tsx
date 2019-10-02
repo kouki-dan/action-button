@@ -43,13 +43,13 @@ const Home = () => {
       <Typography variant="h3">Details</Typography>
 
       <Box className={classes.explanation}>
-        <Typography variant="h4">1. Create your GitHub Actions to build with human based trigger.</Typography>
+        <Typography variant="h4">1. Create your GitHub Actions to build with a human-based trigger.</Typography>
         <Typography variant="body1" className={classes.body}>
-          GitHub Actions is useful feature on GitHub.
-          Actions is able to run with various GitHub events such as pushes or pull requests. 
-          However there is no event with human based trigger such as click any button. 
-          This service makes it possible to run with clicking a button. 
-          For example, setup deploy feature in this button.<br/>
+          GitHub Actions is a useful feature on GitHub.
+          It can run with various GitHub events such as pushes or pull requests. 
+          However, there is no event with a human-based trigger such as click any button. 
+          This service makes it possible to run by clicking a button. 
+          For example, setup deploys feature in this button.<br/>
           <a href="https://github.com/kouki-dan/action-button/blob/master/.github/workflows/deploy.yml">This</a> is an example to use this button.
         </Typography>
       </Box>
@@ -58,7 +58,7 @@ const Home = () => {
         <Typography variant="h4">2. Create a Button in this service.</Typography>
         <Typography variant="body1" className={classes.body}>
           Install this GitHub Apps to your repository which you want to create a button from <a href="https://github.com/apps/action-button">https://github.com/apps/action-button</a><br/>
-          To create a button is very easy. Find your repository and input a title of button and event_type name.
+          To create a button is very easy. Find your repository and input the title of a button and a event_type name.
         </Typography>
         <div style={{
           textAlign: "center"
@@ -66,7 +66,7 @@ const Home = () => {
         >
           <img
             width="80%"
-            src="https://user-images.githubusercontent.com/1401711/65517425-a9f59380-df1d-11e9-8ef2-b94b7ecd4df6.png"
+            src="https://user-images.githubusercontent.com/1401711/65932644-764cc900-e449-11e9-82d8-e399b6792443.png"
           />
         </div>
       </Box>
@@ -79,7 +79,7 @@ const Home = () => {
       </Box>
 
       <Box className={classes.explanation}>
-        <Typography variant="h4">4. Click the Button in README file and trigger GitHub Actions anywhere.</Typography>
+        <Typography variant="h4">4. Click the Button in your README file and trigger GitHub Actions anywhere.</Typography>
         <Typography variant="body1" className={classes.body}>Click the button and run Actions.</Typography>
         <div style={{
           textAlign: "center"
