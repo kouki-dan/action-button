@@ -44,7 +44,8 @@
     "watch:webpack": "webpack-dev-server --mode=development",
     "build": "run-s build:*",
     "start": "run-p watch:*",
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "npm install --prefix functions"
   },
   "repository": {
     "type": "git",
