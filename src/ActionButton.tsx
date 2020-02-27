@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react"
 import { getToken } from "./auth";
 import { Typography, Button } from "@material-ui/core";
 
-const canRunActionAutomatically = (referrer: string, org: string, name: string) => {
+export const canRunActionAutomatically = (referrer: string, org: string, name: string) => {
   if (referrer.startsWith(`https://github.com/${org}/${name}`)) {
     // If the button on the repository page, it should run with no click buttons.
     return true;
