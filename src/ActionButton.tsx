@@ -6,6 +6,14 @@ import { Typography, Button } from "@material-ui/core";
 export const canRunActionAutomatically = (referrer: string, org: string, name: string) => {
   if (referrer.startsWith(`https://github.com/${org}/${name}`)) {
     // If the button on the repository page, it should run with no click buttons.
+    if (
+      referrer.startsWith(`https://github.com/${org}/${name}/issues`) ||
+      referrer.startsWith(`https://github.com/${org}/${name}/pulls`)
+    ) {
+      // However, it is not allowed that the link is in Issues or Pull Requests
+      // because the link may be wrote by non-authors.
+      return false;
+    }
     return true;
   }
   return false;

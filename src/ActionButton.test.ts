@@ -16,4 +16,24 @@ test("canRunActionAutomatically", () => {
       "action-button"
     )
   ).toBe(false);
+
+  expect(canRunActionAutomatically("", "kouki-dan", "action-button")).toBe(
+    false
+  );
+
+  expect(
+    canRunActionAutomatically(
+      "https://github.com/kouki-dan/action-button/issues/1",
+      "kouki-dan",
+      "action-button"
+    )
+  ).toBe(false);
+
+  expect(
+    canRunActionAutomatically(
+      "https://github.com/kouki-dan/action-button/pulls/2",
+      "kouki-dan",
+      "action-button"
+    )
+  ).toBe(false);
 });
