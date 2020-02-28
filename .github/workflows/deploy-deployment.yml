@@ -1,0 +1,29 @@
+name: Deploy with Deployment
+
+on: [deployment]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Deploy
+      # `production` environment is used by demo actions.
+      if: github.event.deployment.environment == 'release'
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
+      run: |
+        npm install firebase-tools
+        PATH=$(npm bin):$PATH
+        npm install
+        cd functions && npm install && cd ..
+        firebase deploy
+    - id: set_state_final
+      if: always()
+      name: Set deployment status
+      uses: rsotnychenko/deployment-status-update@0.1.2
+      with:
+        status: ${{ job.status }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

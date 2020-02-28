@@ -1,4 +1,4 @@
-name: Deploy
+name: Deploy with Repository Dispatch
 
 on: [repository_dispatch]
 
@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Run Deploy
       if: github.event.action == 'deploy'
       env:
