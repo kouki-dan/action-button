@@ -4,7 +4,7 @@ import gql from "graphql-tag"
 import { useQuery } from "@apollo/react-hooks";
 import { RepositoryInfo } from "./graphqlTypes";
 import { useAuthorization } from "./auth";
-import { Typography, Box, TextField } from "@material-ui/core";
+import { Typography, Box, TextField, FormLabel, RadioGroup, FormControlLabel, Radio } from "@material-ui/core";
 
 const REPOSITORY_INFO = gql`
 query RepositoryInfo($owner: String!, $name: String!) {
@@ -27,6 +27,7 @@ const Repo = (props: RouteComponentProps<{org: string, name: string}>) => {
   const unauthorized = useAuthorization(error);
   const [name, setName] = useState("");
   const [eventType, setEventType] = useState("");
+  const [actionButtonType, setActionButtonType] = useState<"deployment" | "dispatch" | undefined>(undefined);
 
   if (!unauthorized || data && data.repository == null) {
     return <>
@@ -55,7 +56,8 @@ const Repo = (props: RouteComponentProps<{org: string, name: string}>) => {
     const encodedName = encodeURIComponent(name);
     const encodedEventType = encodeURIComponent(eventType)
     const origin = location.origin
-    const queryString = `name=${encodedName}&eventType=${encodedEventType}&type=simple`
+    const action = actionButtonType
+    const queryString = `name=${encodedName}&eventType=${encodedEventType}&type=simple&action=${action}`
     return `[![Run Action](${origin}/buttons/simple.svg?${queryString})](${origin}/repos/${props.match.params.org}/${props.match.params.name}/button?${queryString})`
   }
 
@@ -69,12 +71,40 @@ const Repo = (props: RouteComponentProps<{org: string, name: string}>) => {
           onChange={handleNameInput}
           fullWidth
           />
-        <TextField 
-          label="Event Type" 
-          helperText="Webhook's event_type value. This is used to call GitHub webhooks." 
-          onChange={handleEventTypeInput}
-          fullWidth
+        <Box style={{marginTop: "1rem"}}>
+          <FormLabel>Action Trigger Type</FormLabel>
+          <RadioGroup
+            defaultValue={"deployment"}
+            style={{textAlign: "center"}}
+            onChange={(_, value) => {
+              if (value == "deployment" || value == "dispatch") {
+                setActionButtonType(value);
+              }
+            }}
+            row>
+            <FormControlLabel
+              value="deployment"
+              control={<Radio color="primary" />}
+              label="Deployment"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              value="dispatch"
+              control={<Radio color="primary" />}
+              label="Repository Dispatch"
+              labelPlacement="start"
+            />
+          </RadioGroup>
+        </Box>
+        {actionButtonType == "dispatch" && (
+          <TextField
+            label="Event Type"
+            helperText="Webhook's event_type value. This is used to call GitHub webhooks."
+            onChange={handleEventTypeInput}
+            fullWidth
           />
+        )}
+        {actionButtonType == "deployment" /* TODO: Add deployment default parameters*/}
         <Box style={{marginTop: "40px", textAlign: "center"}}>
           <Typography variant="body1">
             Preview
