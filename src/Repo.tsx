@@ -17,6 +17,7 @@ query RepositoryInfo($owner: String!, $name: String!) {
 }
 `;
 
+const actionBUttonTypeDefault = "deployment";
 const Repo = (props: RouteComponentProps<{org: string, name: string}>) => {
   const { loading, error, data } = useQuery<RepositoryInfo>(REPOSITORY_INFO, {
     variables: {
@@ -27,7 +28,7 @@ const Repo = (props: RouteComponentProps<{org: string, name: string}>) => {
   const unauthorized = useAuthorization(error);
   const [name, setName] = useState("");
   const [eventType, setEventType] = useState("");
-  const [actionButtonType, setActionButtonType] = useState<"deployment" | "dispatch" | undefined>(undefined);
+  const [actionButtonType, setActionButtonType] = useState<"deployment" | "dispatch">(actionBUttonTypeDefault);
 
   if (!unauthorized || data && data.repository == null) {
     return <>
@@ -74,7 +75,7 @@ const Repo = (props: RouteComponentProps<{org: string, name: string}>) => {
         <Box style={{marginTop: "1rem"}}>
           <FormLabel>Action Trigger Type</FormLabel>
           <RadioGroup
-            defaultValue={"deployment"}
+            defaultValue={actionBUttonTypeDefault}
             style={{textAlign: "center"}}
             onChange={(_, value) => {
               if (value == "deployment" || value == "dispatch") {
