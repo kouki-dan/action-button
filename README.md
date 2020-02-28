@@ -41,9 +41,17 @@ open http://localhost:8080/
 
 # Action Buttons Demo
 
+## Repository Dispatch
 [![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Run%20Demo%20Test&eventType=demo_test&type=simple)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Run%20Demo%20Test&eventType=demo_test&type=simple)
 [![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Run%20Demo%20Test2&eventType=demo_test2&type=simple)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Run%20Demo%20Test2&eventType=demo_test2&type=simple)
 
+## Deployment
+
+[![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Run%20Demo%20Prod&eventType=&type=simple&action=deployment)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Run%20Demo%20Prod&eventType=&type=simple&action=deployment)
+[![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Run%20Demo%20Dev&eventType=&type=simple&action=deployment)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Run%20Demo%20Dev&eventType=&type=simple&action=deployment&environment=development)
+
 # Deploy Action Button
 
-[![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Deploy%20Action%20Button&eventType=deploy&type=simple)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Deploy%20Action%20Button&eventType=deploy&type=simple)
+[![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Deploy%20With%20Dispatch&eventType=deploy&type=simple)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Deploy%20With%20Dispatch&eventType=deploy&type=simple)
+
+[![Run Action](https://github-action-button.web.app/buttons/simple.svg?name=Deploy%20with%20Deployment&eventType=&type=simple&action=deployment)](https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Deploy%20with%20Deployment&eventType=&type=simple&action=deployment&environment=release)

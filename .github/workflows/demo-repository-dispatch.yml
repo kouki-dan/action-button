@@ -1,4 +1,4 @@
-name: Demo
+name: Demo Repository Dispatch
 
 on: [repository_dispatch]
 
@@ -6,9 +6,9 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Run demo 1
       if: github.event.action == 'demo_test'
       run: |

@@ -1,0 +1,31 @@
+name: Demo Deployment
+
+on: [deployment]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run demo 1
+      # This step runs in this button: https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Demo%20Prod&eventType=&type=simple&action=deployment&ref=master&auto_merge=false
+      # The sample result is here: https://github.com/kouki-dan/action-button/runs/475160043?check_suite_focus=true
+      if: github.event.deployment.environment == 'production'
+      run: |
+        echo "Production deployment completed"
+    - name: Run demo 2
+      # This step runs in this button: https://github-action-button.web.app/repos/kouki-dan/action-button/button?name=Demo%20Prod&eventType=&type=simple&action=deployment&ref=master&auto_merge=false&environment=development
+      # The sample result is here: https://github.com/kouki-dan/action-button/runs/475157378?check_suite_focus=true
+      if: github.event.deployment.environment == 'development'
+      run: |
+        echo "Development deployment completed"
+    - id: set_state_final
+      if: always()
+      name: Set deployment status
+      uses: rsotnychenko/deployment-status-update@0.1.2
+      with:
+        status: ${{ job.status }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
