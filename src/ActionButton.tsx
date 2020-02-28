@@ -64,7 +64,13 @@ const runRepositoryDispatch = (
     if (res.ok) {
       location.href = `https://github.com/${org}/${name}/actions`;
     } else {
-      setError("Error occured. Confirm to access rights for GitHub Apps.");
+      if (res.status == 403) {
+        setError("Error occured. Confirm to access rights for GitHub Apps.");
+      } else {
+        res.json().then(error => {
+          setError("Error occured. " + error["message"]);
+        });
+      }
     }
   });
 };
@@ -284,6 +290,11 @@ const ActionButton = (
     if (action == "deployment") {
       setActionButtonAction(action);
       setDeploymentParameter(parseDeployment(query));
+    } else {
+      if (canRunActionAutomatically(document.referrer, org, name)) {
+        // Currently, deployment is not run automatically because user may want to change a parameter.
+        runRepositoryDispatch(org, name, query.get("eventType") || "", setError);
+      }
     }
 
     const authorizationRequired = getToken().length == 0;
@@ -294,15 +305,6 @@ const ActionButton = (
     }
   }, []);
 
-  useEffect(() => {
-    // Currently, deployment is not run automatically because user may want to change a parameter.
-    if (
-      actionButtonAction == "dispatch" &&
-      canRunActionAutomatically(document.referrer, org, name)
-    ) {
-      runRepositoryDispatch(org, name, actionEventType, setError);
-    }
-  }, [actionButtonAction]);
 
   return (
     <Box
